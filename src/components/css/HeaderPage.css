@@ -1,0 +1,24 @@
+.navbar-container {
+    height: 300px;
+}
+
+.nav-link {
+    font-size: 25px;
+    margin: 0 40px;
+    color: white;
+}
+
+.navbar-custom .nav-link {
+    color: white;
+}
+
+.navbar-custom .nav-link.active,
+.navbar-custom .nav-link:active,
+.navbar-custom .nav-link:focus,
+.navbar-custom .nav-link:hover {
+    color: rgb(176, 176, 176);
+}
+
+.navbar-custom .nav-link:active {
+    color: white;
+}
