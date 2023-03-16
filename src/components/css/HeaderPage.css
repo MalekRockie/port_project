@@ -1,15 +1,22 @@
+
 .navbar-container {
-    height: 300px;
+    position: fixed;
+    height: 20em;
+    width:100%;
+    display: flex;
+
 }
 
 .nav-link {
     font-size: 25px;
-    margin: 0 40px;
     color: white;
+    margin: 0 40px;
+    display: flex;
 }
 
-.navbar-custom .nav-link {
-    color: white;
+.pb-6,
+.py-6 {
+    padding-bottom: 13rem !important;
 }
 
 .navbar-custom .nav-link.active,
@@ -21,4 +28,8 @@
 
 .navbar-custom .nav-link:active {
     color: white;
+}
+
+.navbar-custom .nav {
+    justify-content: center;
 }
