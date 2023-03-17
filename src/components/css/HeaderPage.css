@@ -1,10 +1,10 @@
-
 .navbar-container {
     position: fixed;
     height: 20em;
-    width:100%;
+    width: 100%;
     display: flex;
-
+    flex-direction: column;
+    justify-content: center;
 }
 
 .nav-link {
@@ -16,7 +16,7 @@
 
 .pb-6,
 .py-6 {
-    padding-bottom: 13rem !important;
+    padding-bottom: 4rem !important;
 }
 
 .navbar-custom .nav-link.active,
@@ -30,6 +30,20 @@
     color: white;
 }
 
-.navbar-custom .nav {
-    justify-content: center;
+.text-center {
+    font-size: 4rem;
+    padding-bottom: 0
 }
+.text-center {
+            font-size: 4rem;
+            padding-bottom: 0.5em;
+        }
+    
+        .navbar-expand .navbar-nav .nav-link {
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
+        }
+    
+        .navbar-custom {
+            background: transparent;
+        }

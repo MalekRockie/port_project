@@ -1,0 +1,32 @@
+#particles-js {
+  background: linear-gradient(90deg, #F24645, #4F00BC);
+}
+
+#navbar-content {
+  position: relative;
+  z-index: 1;
+}
+.count-particles{
+  box-sizing: border-box;
+  position: relative;
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  z-index: 2;
+  margin: 50px auto;
+  text-align:center;
+  font-size: 29px;
+  background: linear-gradient(90deg,#808080  ,#E6E6E6 );
+  border-radius:10px;
+  padding: 31px;
+  color:green;
+  box-shadow:0 0 30px #fff,
+    0 0 50px #fff inset;
+  cursor: pointer;
+  &:hover{
+    box-shadow:0 0 50px #44C1EB,
+      0 0 50px #44C1EB inset;
+    color:#44C1EB;
+  }
+  
+}
