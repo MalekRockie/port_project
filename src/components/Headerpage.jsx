@@ -24,7 +24,7 @@ export default function HeaderPage() {
         exit={{ opacity: 0, y: -50 }}
       >
         <div style={{ position: 'relative' }}>
-          <Navbar expand="lg" className="navbar-container navbar-expand navbar-custom" style={{ zIndex: 2, width: '100%', height: '20em', overflow: 'hidden' }}>
+          <Navbar expand="lg" className="navbar-container navbar-expand navbar-custom" style={{ zIndex: 2, width: '100%', overflow: 'hidden' }}>
             <div id="particles-js" style={{ position: 'absolute', width: '100%', height: '100%' }}></div>
             <div id="navbar-content">
               <Container className="d-flex flex-column justify-content-center align-items-center">
