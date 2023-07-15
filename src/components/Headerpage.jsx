@@ -7,6 +7,7 @@ import './css/HeaderPage.css';
 import './style.scss';
 import { motion, AnimatePresence } from 'framer-motion';
 import 'particles.js/particles';
+import IconButton from '@mui/material/IconButton';
 
 
 export default function HeaderPage() {
@@ -34,7 +35,9 @@ export default function HeaderPage() {
                   <Nav.Link>Education</Nav.Link>
                   <Nav.Link>Contact me</Nav.Link>
                 </Nav>
+              <IconButton>
                 <div className="text-center text-white mt-3">Abdulmalek Abulgasem</div>
+              </IconButton>
               </Container>
             </div>
           </Navbar>
