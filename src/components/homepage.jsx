@@ -21,6 +21,14 @@ export default function Homepage() {
     <div>
       <HeaderPage/>
 
+      
+
+      <div style={{paddingTop: '70px', display: 'flex', justifyContent: 'center'}}>
+        <h4 data-aos="fade-up" style={{maxWidth: '650px'}} >Hi, my name is Abdulmalek but you can call me Malek for short.
+         I'm a software developer currently studying computer science at Georgia State University.</h4>
+      </div>
+
+
       <div style={{paddingTop: '200px', display: 'flex', justifyContent: 'center'}}>
         <h2 data-aos="fade-up" >Projects</h2>
       </div>
