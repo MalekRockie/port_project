@@ -7,6 +7,8 @@ import ReactLogo from './images/logo-react-svgrepo-com.svg';
 import SpringBootLogo from './images/springio-ar21.svg';
 import PostgresLogo from './images/postgresql.svg';
 import AndroidStudio from './images/android-studio-icon.svg'
+import JavaLogo from './images/java-horizontal.svg'
+import Footer from './footer';
 
 export default function Homepage() {
   useEffect(() => {
@@ -23,6 +25,7 @@ export default function Homepage() {
         <h2 data-aos="fade-up" >Projects</h2>
       </div>
 
+      {/*Project 1 */}
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px'}}>
         <div
           style={{
@@ -53,8 +56,9 @@ export default function Homepage() {
             <p>An app to plan and connect with your friends and other people to play soccer</p>
             
             <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
-              <p style={{ marginRight: '10px' }}>Tools:</p>
+              <p style={{ marginRight: '10px' }}><b>Tools:</b></p>
               <img src={ReactLogo} alt="React" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
+              <img src={JavaLogo} alt="Java" style={{ width: '85px', height: '35px', marginRight: '7px' }}/>
               <img src={SpringBootLogo} alt="Spring Boot" style={{ width: '70px', height: '40px', marginRight: '7px' }}/>
               <img src={PostgresLogo} alt="PostgreSQL" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
             </div>
@@ -96,6 +100,7 @@ export default function Homepage() {
 
             <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
               <p style={{ marginRight: '10px' }}>Tools:</p>
+              <img src={JavaLogo} alt="Java" style={{ width: '85px', height: '35px', marginRight: '7px' }}/>
               <img src={AndroidStudio} alt="Android Studio" style={{width: '35px', height: '35px', marginRight: '7px' }}/>
             </div>
 
@@ -123,21 +128,32 @@ export default function Homepage() {
             alt="Description 3" 
           />
 
-          <div
-            style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            textAlign: 'left'
-            }}
-          >
-            <h4 style={{ fontWeight: 'bold' }}>Usports</h4>
-            <p>An app to plan and connect with your friends and other people to play soccer</p>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                textAlign: 'left',
+                maxHeight: '250px', // Set a max-height
+                overflow: 'auto' // Add scrollbars if content overflows
+              }}
+            >
+            <h4 style={{ fontWeight: 'bold' }}>Make my habits</h4>
+            <p>A Java-based Android app for efficient habit tracking and progress visualization.</p>
+
+            <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
+              <p style={{ marginRight: '10px' }}>Tools:</p>
+              <img src={JavaLogo} alt="Java" style={{ width: '85px', height: '35px', marginRight: '7px' }}/>
+              <img src={AndroidStudio} alt="Android Studio" style={{width: '35px', height: '35px', marginRight: '7px' }}/>
+            </div>
+
             <button style={{ marginTop: '20px', backgroundColor: '#3f51b5', color: 'white', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer', width: '180px' }}>Show Code</button>
           </div>
         </div>
       </div>
+      <div style={{paddingBottom:'300px'}}></div>
 
+            <Footer/>
     </div>
   )
 }
