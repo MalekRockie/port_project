@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import HeaderPage from './Headerpage';
-import { Box, Button } from '@mui/material';
+import { Box, Button, Tooltip, IconButton } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ReactLogo from './images/logo-react-svgrepo-com.svg';
@@ -9,6 +9,36 @@ import PostgresLogo from './images/postgresql.svg';
 import AndroidStudio from './images/android-studio-icon.svg'
 import JavaLogo from './images/java-horizontal.svg'
 import Footer from './footer';
+import EmailIcon from '@mui/icons-material/Email';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
+
+
+const boxStyle = {
+  position: 'fixed',
+  left: '0',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '10px',
+  transition: '0.5s',
+  zIndex: 100
+};
+
+
+// Style for the individual icon containers
+const iconContainerStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  color: '#fff',
+  padding: '10px',
+  margin: '10px',
+  borderRadius: '10px',
+  transition: '0.5s',
+  zIndex: 1
+};
 
 export default function Homepage() {
   useEffect(() => {
@@ -20,8 +50,27 @@ export default function Homepage() {
   return (
     <div>
       <HeaderPage/>
-
       
+    {/* The boxes */}
+    <Box style={boxStyle}>
+            <Tooltip title="Email">
+              <IconButton style={{ ...iconContainerStyle, backgroundColor: '#D44638' }} href="#">
+                <EmailIcon />
+              </IconButton>
+            </Tooltip>
+
+            <Tooltip title="GitHub">
+              <IconButton style={{ ...iconContainerStyle, backgroundColor: '#333' }} href="#">
+                <GitHubIcon />
+              </IconButton>
+            </Tooltip>
+
+            <Tooltip title="LinkedIn">
+              <IconButton style={{ ...iconContainerStyle, backgroundColor: '#0A66C2' }} href="#">
+                <LinkedInIcon />
+              </IconButton>
+            </Tooltip>
+          </Box>
 
       <div style={{paddingTop: '70px', display: 'flex', justifyContent: 'center'}}>
         <h4 data-aos="fade-up" style={{maxWidth: '650px'}} >Hi, my name is Abdulmalek but you can call me Malek for short.
@@ -66,7 +115,7 @@ export default function Homepage() {
             <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
               <p style={{ marginRight: '10px' }}><b>Tools:</b></p>
               <img src={ReactLogo} alt="React" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
-              <img src={JavaLogo} alt="Java" style={{ width: '85px', height: '35px', marginRight: '7px' }}/>
+              <img src={JavaLogo} alt="Java" style={{ width: '95px', height: '35px', marginRight: '7px' }}/>
               <img src={SpringBootLogo} alt="Spring Boot" style={{ width: '70px', height: '40px', marginRight: '7px' }}/>
               <img src={PostgresLogo} alt="PostgreSQL" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
             </div>
@@ -92,7 +141,7 @@ export default function Homepage() {
           <img 
             style={{ width: '50%', objectFit: 'cover', borderRadius: '5px', marginRight: '20px' }} 
             src="image-place-holder" 
-            alt="Description 3" 
+            alt="Project 2" 
           />
 
           <div
@@ -108,7 +157,7 @@ export default function Homepage() {
 
             <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
               <p style={{ marginRight: '10px' }}>Tools:</p>
-              <img src={JavaLogo} alt="Java" style={{ width: '85px', height: '35px', marginRight: '7px' }}/>
+              <img src={JavaLogo} alt="Java" style={{ width: '95px', height: '35px', marginRight: '7px' }}/>
               <img src={AndroidStudio} alt="Android Studio" style={{width: '35px', height: '35px', marginRight: '7px' }}/>
             </div>
 
@@ -133,7 +182,7 @@ export default function Homepage() {
           <img 
             style={{ width: '50%', objectFit: 'cover', borderRadius: '5px', marginRight: '20px' }} 
             src="image-place-holder" 
-            alt="Description 3" 
+            alt="Project 3" 
           />
 
             <div
@@ -151,7 +200,7 @@ export default function Homepage() {
 
             <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
               <p style={{ marginRight: '10px' }}>Tools:</p>
-              <img src={JavaLogo} alt="Java" style={{ width: '85px', height: '35px', marginRight: '7px' }}/>
+              <img src={JavaLogo} alt="Java" style={{ width: '95px', height: '35px', marginRight: '7px' }}/>
               <img src={AndroidStudio} alt="Android Studio" style={{width: '35px', height: '35px', marginRight: '7px' }}/>
             </div>
 
