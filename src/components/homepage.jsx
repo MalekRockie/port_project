@@ -209,9 +209,10 @@ export default function Homepage() {
           </div>
         </div>
       </div>
-      <div style={{paddingBottom:'50px'}}></div>
+      <div style={{paddingBottom:'80px'}}></div>
 
       <div data-aos="fade-up">
+        <h2 style={{fontWeight:"inherit"}}>Email me:</h2>
         <ContactUs/>
       </div>
       
