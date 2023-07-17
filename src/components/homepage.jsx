@@ -12,6 +12,7 @@ import Footer from './footer';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { ContactUs } from './emailContact';
 
 
 
@@ -60,13 +61,13 @@ export default function Homepage() {
             </Tooltip>
 
             <Tooltip title="GitHub">
-              <IconButton style={{ ...iconContainerStyle, backgroundColor: '#333' }} href="#">
+              <IconButton style={{ ...iconContainerStyle, backgroundColor: '#333' }} href="https://github.com/MalekRockie">
                 <GitHubIcon />
               </IconButton>
             </Tooltip>
 
             <Tooltip title="LinkedIn">
-              <IconButton style={{ ...iconContainerStyle, backgroundColor: '#0A66C2' }} href="#">
+              <IconButton style={{ ...iconContainerStyle, backgroundColor: '#0A66C2' }} href="https://www.linkedin.com/in/abdulmalek-abulgasem-788710166/">
                 <LinkedInIcon />
               </IconButton>
             </Tooltip>
@@ -208,7 +209,13 @@ export default function Homepage() {
           </div>
         </div>
       </div>
-      <div style={{paddingBottom:'300px'}}></div>
+      <div style={{paddingBottom:'50px'}}></div>
+
+      <div data-aos="fade-up">
+        <ContactUs/>
+      </div>
+      
+      <div style={{paddingBottom:'200px'}}></div>
 
             <Footer/>
     </div>
