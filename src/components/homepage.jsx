@@ -41,6 +41,18 @@ const iconContainerStyle = {
   zIndex: 1
 };
 
+const educationBoxStyle = {
+  width: '60%',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  padding: '20px',
+  border: '1px solid #3f51b5',
+  borderRadius: '10px',
+  boxShadow: '5px 5px 15px rgba(0,0,0,0.1)',
+};
+
 export default function Homepage() {
   useEffect(() => {
     AOS.init({
@@ -73,7 +85,7 @@ export default function Homepage() {
             </Tooltip>
           </Box>
 
-      <div style={{paddingTop: '70px', display: 'flex', justifyContent: 'center'}}>
+      <div style={{paddingTop: '70px', display: 'flex', justifyContent: 'center', paddingTop:'200px', fontFamily:'open-sans'}}>
         <h4 data-aos="fade-up" style={{maxWidth: '650px'}} >Hi, my name is Abdulmalek but you can call me Malek for short.
          I'm a software developer currently studying computer science at Georgia State University.</h4>
       </div>
@@ -209,10 +221,54 @@ export default function Homepage() {
           </div>
         </div>
       </div>
-      <div style={{paddingBottom:'80px'}}></div>
 
+      <div style={{paddingTop: '200px', display: 'flex', justifyContent: 'center'}}>
+        <h2 data-aos="fade-up" >Education</h2>
+      </div>
+      {/* Education Entry 1 - Current Education at Georgia State University */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px'}}>
+        <div style={educationBoxStyle} data-aos="fade-up">
+          <div
+            style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            textAlign: 'left'
+            }}
+          >
+            <h4 style={{ fontWeight: 'bold' }}>Georgia State University</h4>
+            <ul>
+              <li>Program: Bachelor of Science in Computer Science</li>
+              <li>Expected Graduation: Dececmber 2023</li>
+              <li>Current GPA: 3.68</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Education Entry 2 - Previous Education at Georgia State University */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px', paddingBottom: '200px'}}>
+        <div style={educationBoxStyle} data-aos="fade-up">
+          <div
+            style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            textAlign: 'left'
+            }}
+          >
+            <h4 style={{ fontWeight: 'bold' }}>Georgia State University - Perimeter</h4>
+            <ul>
+              <li>Program: Associate Degree in Computer Science</li>
+              <li>Year of Graduation: 2020</li>
+              <li>GPA: 3.48</li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div data-aos="fade-up">
         <h2 style={{fontWeight:"inherit"}}>Email me:</h2>
+        
         <ContactUs/>
       </div>
       

@@ -38,6 +38,8 @@ export default function HeaderPage() {
               <IconButton>
                 <div className="text-center text-white mt-3">Abdulmalek Abulgasem</div>
               </IconButton>
+              <p style={{width:'650px', color: 'white', fontFamily:'open-sans', fontSize:'23px'}}>Hi, my name is Abdulmalek but you can call me Malek for short.
+              I'm a software developer currently studying computer science at Georgia State University.</p>
               </Container>
             </div>
           </Navbar>

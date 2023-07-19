@@ -1,6 +1,6 @@
 ## My Portfolio Website
 
-This is my personal portfolio website that showcases my projects and skills as a software engineer
+This is my personal portfolio website that showcases my projects and skills as a software engineer.
 
 Technologies Used:
 
@@ -8,3 +8,4 @@ Technologies Used:
 - CSS
 - JavaScript
 - Bootstrap
+- Material UI
