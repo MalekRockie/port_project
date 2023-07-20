@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/port_project/static/css/main.5266c090.css",
-    "main.js": "/port_project/static/js/main.cb3e19c2.js",
+    "main.js": "/port_project/static/js/main.12be6109.js",
     "static/js/787.f6bc2d5a.chunk.js": "/port_project/static/js/787.f6bc2d5a.chunk.js",
     "static/media/logo-react-svgrepo-com.svg": "/port_project/static/media/logo-react-svgrepo-com.749afd9dc7fdedaacf45f1f4b44f545c.svg",
     "static/media/springio-ar21.svg": "/port_project/static/media/springio-ar21.d458b3503f08c9fee348482e5f3318cb.svg",
@@ -11,11 +11,11 @@
     "static/media/android-studio-icon.svg": "/port_project/static/media/android-studio-icon.678bd5bde7e5a5b9df55a334a7ddfdaa.svg",
     "index.html": "/port_project/index.html",
     "main.5266c090.css.map": "/port_project/static/css/main.5266c090.css.map",
-    "main.cb3e19c2.js.map": "/port_project/static/js/main.cb3e19c2.js.map",
+    "main.12be6109.js.map": "/port_project/static/js/main.12be6109.js.map",
     "787.f6bc2d5a.chunk.js.map": "/port_project/static/js/787.f6bc2d5a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5266c090.css",
-    "static/js/main.cb3e19c2.js"
+    "static/js/main.12be6109.js"
   ]
 }
