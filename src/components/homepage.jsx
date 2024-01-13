@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import HeaderPage from './navbar';
 import { Box, Button, IconButton, Tooltip } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ReactLogo from './images/logo-react-svgrepo-com.svg';
@@ -64,8 +65,8 @@ const projectContainerStyle = {
   justifyContent: 'space-around',
   alignItems: 'center',
   padding: '20px',
-  marginTop: '50px',
-  margin: 'auto'
+  marginTop: '90px',
+  margin: 'auto',
 };
 
 const imageContainerStyle = {
@@ -82,6 +83,44 @@ const descriptionContainerStyle = {
   justifyContent: 'center',
   textAlign: 'left',
 };
+
+
+const GradientButton = styled(Button)(({ theme }) => ({
+  position: 'relative',
+  color: 'white',
+  width: '200px',
+  padding: '10px 5px',
+  borderRadius: '5px',
+  boxShadow: '0px 1px 5px rgba(0, 0, 0, 0.2)',
+  background: 'linear-gradient(45deg, #f52a6d, #5E42A6)', // Normal state gradient
+  overflow: 'hidden',
+
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: 'linear-gradient(45deg, #c0245d, #4e3686)', // Darker hover state gradient
+    opacity: 0,
+    transition: 'opacity 0.5s ease',
+    zIndex: 1, // Ensure this layer is below the text
+  },
+
+  '& > span': {
+    position: 'relative',
+    zIndex: 2, // Ensures text is above the pseudo-element
+  },
+
+  '&:hover::before': {
+    opacity: 1,
+  },
+}));
+
+
+
+
 
 export default function Homepage() {
   useEffect(() => {
@@ -123,6 +162,36 @@ export default function Homepage() {
         <h2 data-aos="fade-up" >Projects</h2>
       </div>
 
+      {/*Project 1*/}
+      <div id='projects' style={projectContainerStyle} data-aos="fade-up">
+        <div style={imageContainerStyle}>
+          <img 
+            style={{ width: '400px', objectFit: 'cover', borderRadius: '5px', border: '0.1px solid #737373'}} 
+            src={project1} 
+            alt="Project 1" 
+          />
+        </div>
+        <div style={descriptionContainerStyle}>
+          <h4 style={{ fontWeight: 'bold' }}>Usports</h4>
+          <p>An app to plan and connect with your friends and other people to play soccer</p>
+          <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
+            <p style={{ marginRight: '10px' }}><b>Tools:</b></p>
+            <img src={ReactLogo} alt="React" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
+            <img src={JavaLogo} alt="Java" style={{ width: '95px', height: '35px', marginRight: '7px' }}/>
+            <img src={SpringBootLogo} alt="Spring Boot" style={{ width: '70px', height: '40px', marginRight: '7px' }}/>
+            <img src={PostgresLogo} alt="PostgreSQL" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
+          </div>
+        <div style={{paddingTop:'10px'}}>
+          <a href='https://github.com/MalekRockie/USport'>
+            <GradientButton variant="contained">
+              <span>Show Github</span>
+            </GradientButton>
+          </a>
+        </div>
+        </div>
+      </div>
+
+      {/*Project 2*/}
       <div id='projects' style={projectContainerStyle} data-aos="fade-up">
         <div style={imageContainerStyle}>
           <img 
@@ -141,35 +210,15 @@ export default function Homepage() {
             <img src={SpringBootLogo} alt="Spring Boot" style={{ width: '70px', height: '40px', marginRight: '7px' }}/>
             <img src={PostgresLogo} alt="PostgreSQL" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
           </div>
-          <button style={{ marginTop: '20px', backgroundColor: '#3f51b5', color: 'white', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer', width: '180px' }}>Show Code</button>
-          
-
-
+          <div style={{paddingTop:'10px'}}>
+          <GradientButton variant="contained">
+            <span>Show Github</span>
+          </GradientButton>
+        </div>
         </div>
       </div>
 
-      <div id='projects' style={projectContainerStyle} data-aos="fade-up">
-        <div style={imageContainerStyle}>
-          <img 
-            style={{ width: '400px', objectFit: 'cover', borderRadius: '5px', border: '0.1px solid #737373'}} 
-            src={project1} 
-            alt="Project 1" 
-          />
-        </div>
-        <div style={descriptionContainerStyle}>
-          <h4 style={{ fontWeight: 'bold' }}>Usports</h4>
-          <p>An app to plan and connect with your friends and other people to play soccer</p>
-          <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
-            <p style={{ marginRight: '10px' }}><b>Tools:</b></p>
-            <img src={ReactLogo} alt="React" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
-            <img src={JavaLogo} alt="Java" style={{ width: '95px', height: '35px', marginRight: '7px' }}/>
-            <img src={SpringBootLogo} alt="Spring Boot" style={{ width: '70px', height: '40px', marginRight: '7px' }}/>
-            <img src={PostgresLogo} alt="PostgreSQL" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
-          </div>
-          <button style={{ marginTop: '20px', backgroundColor: '#3f51b5', color: 'white', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer', width: '180px' }}>Show Code</button>
-        </div>
-      </div>
-
+      {/*Project 3*/}
       <div style={projectContainerStyle} data-aos="fade-up">
         <div style={imageContainerStyle}>
           <img 
@@ -186,10 +235,17 @@ export default function Homepage() {
             <img src={JavaLogo} alt="Java" style={{ width: '85px', height: '35px', marginRight: '7px' }}/>
               <img src={AndroidStudio} alt="Android Studio" style={{width: '35px', height: '35px', marginRight: '7px' }}/>
           </div>
-          <button style={{ marginTop: '20px', backgroundColor: '#3f51b5', color: 'white', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer', width: '180px' }}>Show Code</button>
+          <div style={{paddingTop:'10px'}}>
+          <a href='https://github.com/MalekRockie/Barbershop-Management-App'>
+            <GradientButton variant="contained">
+              <span>Show Github</span>
+            </GradientButton>
+            </a>
+        </div>
         </div>
       </div>
 
+      {/*Project 4*/}
       <div style={projectContainerStyle} data-aos="fade-up">
         <div style={imageContainerStyle}>
           <img 
@@ -208,7 +264,13 @@ export default function Homepage() {
           <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
             {/* Tools and other details for Project 3 */}
           </div>
-          <button style={{ marginTop: '20px', backgroundColor: '#3f51b5', color: 'white', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer', width: '180px' }}>Show Code</button>
+          <div style={{paddingTop:'10px'}}>
+          <a href='https://github.com/MalekRockie/TextSummarizer-AI'>
+            <GradientButton variant="contained">
+              <span>Show Github</span>
+            </GradientButton>
+            </a>
+        </div>
         </div>
       </div>
 
