@@ -42,7 +42,7 @@ export function ContactUs() {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                style={{ width: '300px' }}
+                style={{ width: '400px' }}
                 />
                 <TextField 
                 type="email" 
@@ -51,7 +51,7 @@ export function ContactUs() {
                 margin="normal"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                style={{ width: '300px' }}
+                style={{ width: '400px' }}
                 required
                 />
                 <TextField 
@@ -62,7 +62,7 @@ export function ContactUs() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 margin="normal"
-                style={{ width: '300px' }}
+                style={{ width: '400px' }}
                 required
                 />
                 <Button 

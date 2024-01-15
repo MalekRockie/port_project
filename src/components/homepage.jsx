@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderPage from './navbar';
-import { Box, Button, IconButton, Tooltip } from '@mui/material';
+import { Box, Button, IconButton, Tooltip, List, ListItem, ListItemIcon, useTheme, useMediaQuery  } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { styled } from '@mui/material/styles';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -10,15 +11,18 @@ import PostgresLogo from './images/postgresql.svg';
 import AndroidStudio from './images/android-studio-icon.svg';
 import JavaLogo from './images/java-horizontal.svg';
 import PythonLogo from './images/icons8-python.svg';
+import GitLogo from './images/Git-Logo-2Color.svg';
+import GitHubLogo from './images/github-mark.svg';
 import project1 from './images/project1.png';
 import project2 from './images/project2.png';
 import project3 from './images/project3.png';
+import project4 from './images/project4.png';
 import Footer from './footer';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { ContactUs } from './emailContact';
-
+import MobileNav from './MobileNav';
 
 const boxStyle = {
   position: 'fixed',
@@ -59,29 +63,48 @@ const educationBoxStyle = {
 };
 
 const projectContainerStyle = {
-  width: '60%',
   display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-around',
+  flexDirection: 'row', // Stack vertically on smaller screens
   alignItems: 'center',
   padding: '20px',
-  marginTop: '90px',
+  marginTop: '20px',
   margin: 'auto',
+  fontFamily: 'open-sans',
+
+  '@media (min-width: 500px)': { // Adjust this breakpoint as needed
+    flexDirection: 'row', // Side by side on larger screens
+    justifyContent: 'space-evenly', // Space out items evenly
+    alignItems: 'flex-start', // Align items to the start of the flex container
+  },
 };
 
 const imageContainerStyle = {
-  width: '50%',
+  width: '100%', // Full width on smaller screens
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  marginBottom: '20px', // Space between image and description on smaller screens
+
+  '@media (min-width: 900px)': { // Adjust this breakpoint as needed
+    width: 'auto', // Auto width on larger screens
+    flex: '1 1 45%', // Flex-grow, flex-shrink, flex-basis
+    marginBottom: '0', // No margin on the bottom for larger screens
+  },
 };
 
 const descriptionContainerStyle = {
-  width: '50%',
+  width: '100%', // Full width on smaller screens
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   textAlign: 'left',
+  padding: '0 20px', // Padding on the sides for smaller screens
+
+  '@media (min-width: 900px)': { // Adjust this breakpoint as needed
+    width: 'auto', // Auto width on larger screens
+    flex: '1 1 45%', // Flex-grow, flex-shrink, flex-basis
+    padding: '0', // Remove padding for larger screens
+  },
 };
 
 
@@ -119,8 +142,14 @@ const GradientButton = styled(Button)(({ theme }) => ({
 }));
 
 
-
-
+const skillsContainerStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  marginTop: '200px',
+  marginBottom: '50px',
+};
 
 export default function Homepage() {
   useEffect(() => {
@@ -129,11 +158,13 @@ export default function Homepage() {
     });
   }, []);
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <div>
-      <HeaderPage/>
-      
-      <Box style={boxStyle}>
+      {isMobile ? <MobileNav /> : <HeaderPage />}
+      <Box to="projects" smooth={true} duration={1000} style={boxStyle}>
         <Tooltip title="Email">
           <IconButton style={{ ...iconContainerStyle, backgroundColor: '#D44638' }} href="#">
             <EmailIcon />
@@ -153,12 +184,26 @@ export default function Homepage() {
         </Tooltip>
       </Box>
 
+      {/*My introduction*/}
       <div style={{paddingTop: '70px', display: 'flex', justifyContent: 'center', paddingTop:'200px', fontFamily:'open-sans'}}>
         <h4 data-aos="fade-up" style={{maxWidth: '650px'}} >Hi, my name is Abdulmalek but you can call me Malek for short.
         I'm a software developer currently studying computer science at Georgia State University.</h4>
       </div>
 
-      <div id='projects' style={{paddingTop: '200px', display: 'flex', justifyContent: 'center'}}>
+    {/* Skills Section */}
+      <div data-aos="fade-up" style={skillsContainerStyle}>
+        <h2 style={{ width: '100%', textAlign: 'center', marginBottom: '20px', fontFamily: 'open-sans' }}>Skills</h2>
+        <img src={ReactLogo} alt="React" style={{ width: '40px', height: '70px', margin: '10px' }} />
+        <img src={JavaLogo} alt="Java" style={{ width: '90px', height: '30px', margin: '10px' }} />
+        <img src={SpringBootLogo} alt="Spring Boot" style={{ width: '100px', height: '50px', margin: '10px' }} />
+        <img src={PostgresLogo} alt="PostgreSQL" style={{ width: '40px', height: '70px', margin: '10px' }} />
+        <img src={AndroidStudio} alt="Android Studio" style={{ width: '40px', height: '70px', margin: '10px' }} />
+        <img src={PythonLogo} alt="Python" style={{ width: '50px', height: '70px', margin: '10px' }} />
+        <img src={GitLogo} alt="Python" style={{ width: '90px', height: '70px', margin: '10px' }} />
+        <img src={GitHubLogo} alt="Github" style={{ width: '60px', height: '60px', margin: '10px' }} />
+      </div>
+
+      <div id='projects' style={{paddingTop: '200px', display: 'flex', justifyContent: 'center',fontFamily:'open-sans'}}>
         <h2 data-aos="fade-up" >Projects</h2>
       </div>
 
@@ -196,13 +241,13 @@ export default function Homepage() {
         <div style={imageContainerStyle}>
           <img 
             style={{ width: '400px', objectFit: 'cover', borderRadius: '5px', border: '0.1px solid #737373'}} 
-            src={project1} 
+            src={project4} 
             alt="Project 1" 
           />
         </div>
         <div style={descriptionContainerStyle}>
-          <h4 style={{ fontWeight: 'bold' }}>Usports</h4>
-          <p>An app to plan and connect with your friends and other people to play soccer</p>
+          <h4 style={{ fontWeight: 'bold' }}>ServiceMe</h4>
+          <p>An app I worked on as a school project that serves to provide people with a way to get or provide a variety of serivces locally.</p>
           <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
             <p style={{ marginRight: '10px' }}><b>Tools:</b></p>
             <img src={ReactLogo} alt="React" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
@@ -211,9 +256,11 @@ export default function Homepage() {
             <img src={PostgresLogo} alt="PostgreSQL" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
           </div>
           <div style={{paddingTop:'10px'}}>
-          <GradientButton variant="contained">
-            <span>Show Github</span>
-          </GradientButton>
+            <a href='https://github.com/MalekRockie/service-app'>
+              <GradientButton variant="contained">
+                <span>Show Github</span>
+              </GradientButton>
+            </a>
         </div>
         </div>
       </div>
@@ -331,7 +378,7 @@ export default function Homepage() {
         <h2 style={{fontWeight:"inherit"}}>Email me:</h2>
         <ContactUs/>
       </div>
-      <Footer/>
+        <Footer/>
     </div>
   );
 }

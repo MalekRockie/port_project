@@ -4,9 +4,9 @@ import { Link } from 'react-scroll';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import './css/HeaderPage.css';  // Your existing CSS imports
-import './style.scss';  // Your existing CSS imports
-import './css/NavbarStyles.css';  // Import the new navbar styles with animations
+import './css/HeaderPage.css';
+import './style.scss';
+import './css/NavbarStyles.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import 'particles.js/particles';
 import IconButton from '@mui/material/IconButton';
