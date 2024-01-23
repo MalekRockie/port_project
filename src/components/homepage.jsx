@@ -17,11 +17,11 @@ import project1 from './images/project1.png';
 import project2 from './images/project2.png';
 import project3 from './images/project3.png';
 import project4 from './images/project4.png';
-import Footer from './footer';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { ContactUs } from './emailContact';
+import  Footer from './footer';
 import MobileNav from './MobileNav';
 import './css/responsive-styles.css';
 import { blue } from '@mui/material/colors';
@@ -154,7 +154,7 @@ export default function Homepage() {
       <div id='projects' className="projectContainerStyle" data-aos="fade-up">
         <div className='imageContainerStyle'>
           <img 
-            style={{ width: '350px', objectFit: 'cover', borderRadius: '5px', border: '0.1px solid #737373'}} 
+            style={{ width: '400px', objectFit: 'cover', borderRadius: '5px', border: '0.1px solid #737373'}} 
             src={project1} 
             alt="Project 1" 
           />
@@ -183,7 +183,7 @@ export default function Homepage() {
       <div className="projectContainerStyle" data-aos="fade-up">
         <div className='imageContainerStyle'>
           <img 
-            style={{ width: '350px', objectFit: 'cover', borderRadius: '5px', border: '0.1px solid #737373'}} 
+            style={{ width: '400px', objectFit: 'cover', borderRadius: '5px', border: '0.1px solid #737373'}} 
             src={project4} 
             alt="Project 1" 
           />
@@ -212,7 +212,7 @@ export default function Homepage() {
       <div className="projectContainerStyle" data-aos="fade-up">
         <div className='imageContainerStyle'>
           <img 
-            style={{ width: '350px', height:'350px', objectFit: 'cover', borderRadius: '5px' }} 
+            style={{ width: '400px', height:'350px', objectFit: 'cover', borderRadius: '5px' }} 
             src={project2} 
             alt="Project 2" 
           />
@@ -239,7 +239,7 @@ export default function Homepage() {
       <div className="projectContainerStyle" data-aos="fade-up">
         <div className='imageContainerStyle'>
           <img 
-            style={{ width: '350px', objectFit: 'cover', borderRadius: '5px' }} 
+            style={{ width: '400px', objectFit: 'cover', borderRadius: '5px' }} 
             src={project3} 
             alt="Project 3" 
           />

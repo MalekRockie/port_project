@@ -14,12 +14,12 @@ import IconButton from '@mui/material/IconButton';
 export default function Footer() {
 
     useEffect(() => {
-        window.particlesJS.load('footer-particles-js', '/particles.json', function () {
-          console.log('callback - particles.js config loaded');
+        window.particlesJS.load('footer-particles-js', 'particles.json', function () {
+        console.log('callback - particles.js config loaded');
         });
-      }, []);
+    }, []);
 
-  return (
+return (
     <div>
         <AnimatePresence>
             <motion.div

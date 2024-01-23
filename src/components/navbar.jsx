@@ -13,7 +13,7 @@ import IconButton from '@mui/material/IconButton';
 
 export default function HeaderPage() {
   useEffect(() => {
-    window.particlesJS.load('particles-js', '%PUBLIC_URL%/particles.json', function () {
+    window.particlesJS.load('particles-js', 'particles.json', function () {
       console.log('callback - particles.js config loaded');
     });
   }, []);
