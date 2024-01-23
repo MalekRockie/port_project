@@ -32,8 +32,8 @@ export default function HeaderPage() {
               <Container className="d-flex flex-column justify-content-center align-items-center">
                 <Nav className="mx-auto pb-6">
                   <div className="container purple topBotomBordersIn">
-                  <Link to="home" smooth={true} duration={1000}>Skills</Link>
                   <Link to="projects" smooth={true} duration={1000}>Projects</Link>
+                  <Link to="skillSection" smooth={true} duration={1000}>Skills</Link>
                   <Link to="education" smooth={true} duration={1000}>Education</Link>
                   <Link to="contact" smooth={true} duration={1000}>Contact me</Link>
                   </div>

@@ -1,5 +1,4 @@
 {
-  "homepage": "http://MalekRockie.github.io/port_project",
   "name": "port_project",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +15,6 @@
     "dotenv": "^16.3.1",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^10.5.0",
-    "gh-pages": "^6.1.1",
     "particles.js": "^2.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
@@ -31,9 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

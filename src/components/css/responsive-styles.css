@@ -1,0 +1,72 @@
+/* responsive-styles.css */
+/*Screens that are 1080 or bigger*/
+@media screen and (min-width: 1080px) {
+    .projectContainerStyle {
+        flex-direction: row;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        margin-top: 20px;
+        margin: auto;
+        font-family: 'open-sans';
+        width: 50%;
+    }
+    .imageContainerStyle
+    {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .descriptionContainerStyle{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding: '0 20px';
+    }
+    .IntroD
+    {
+        width: 50%;
+        display: flex;
+        justify-content:center;
+        margin: auto;
+        margin-top: 200px;
+        font-family: open-sans;
+    }
+}
+
+
+/*Screens that are 992 or less*/
+@media screen and (max-width: 992px) {
+    .projectContainerStyle {
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        padding: 20px;
+        margin-top: 20px;
+        justify-content: space-evenly;
+        font-family: 'open-sans';
+        /* background-color: black; */
+    }
+    .imageContainerStyle
+    {
+        flex: '1 1 45%';
+        margin-bottom:0;
+    }
+    .descriptionContainerStyle{
+        width: 'auto';
+        flex: '1 1 45%';
+        padding: '0';
+    }
+    .IntroD {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        margin-top: 200px;
+        font-family: open-sans;
+    }
+}
