@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import HeaderPage from './navbar';
-import { Box, Button, IconButton, Tooltip, List, ListItem, ListItemIcon, useTheme, useMediaQuery  } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Box, Button, IconButton, Tooltip, useTheme, useMediaQuery  } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -24,7 +23,6 @@ import { ContactUs } from './emailContact';
 import  Footer from './footer';
 import MobileNav from './MobileNav';
 import './css/responsive-styles.css';
-import { blue } from '@mui/material/colors';
 
 const boxStyle = {
   position: 'fixed',
@@ -47,21 +45,6 @@ const iconContainerStyle = {
   borderRadius: '10px',
   transition: '0.5s',
   zIndex: 1
-};
-
-const educationBoxStyle = {
-  width: '50%',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  padding: '20px',
-  border: '1px solid #3f51b5',
-  borderRadius: '10px',
-  boxShadow: '5px 5px 15px rgba(0,0,0,0.1)',
-  margin: 'auto',
-  textAlign: 'left',
-  fontFamily:'open-sans'
 };
 
 const GradientButton = styled(Button)(({ theme }) => ({
@@ -96,8 +79,6 @@ const GradientButton = styled(Button)(({ theme }) => ({
     opacity: 1,
   },
 }));
-
-
 const skillsContainerStyle = {
   display: 'flex',
   justifyContent: 'center',
@@ -284,16 +265,17 @@ export default function Homepage() {
 
       {/* Education Entry 1 - Current Education at Georgia State University */}
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px'}}>
-        <div style={educationBoxStyle} data-aos="fade-up">
+        <div className='educationBoxStyle' data-aos="fade-up">
           <img
-          style={{height: '150px', marginRight: '80px'}}
+          style={{height: '150px', marginBottom:'50px'}}
           src='https://commkit.gsu.edu/wp-content/themes/gsu-flex-2.1/images/logo.png'/>
           <div
             style={{
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            textAlign: 'left'
+            textAlign: 'left',
+            paddingLeft: '15px'
             }}
           >
             <h4 style={{ fontWeight: 'bold' }}>Georgia State University</h4>
@@ -308,16 +290,17 @@ export default function Homepage() {
 
       {/* Education Entry 2 - Previous Education at Georgia State University */}
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px', paddingBottom: '200px'}}>
-        <div style={educationBoxStyle} data-aos="fade-up">
+        <div className='educationBoxStyle' data-aos="fade-up">
           <img
-          style={{height: '150px', paddingRight: '70px'}}
+          style={{height: '150px', marginBottom:'50px'}}
           src='https://commkit.gsu.edu/wp-content/themes/gsu-flex-2.1/images/logo.png'/>
           <div
             style={{
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            textAlign: 'left'
+            textAlign: 'left',
+            paddingLeft: '15px'
             }}
           >
             <h4 style={{ fontWeight: 'bold' }}>Georgia State University - Perimeter</h4>

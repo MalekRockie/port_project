@@ -21,12 +21,18 @@ const MobileNav = () => {
       </IconButton>
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
         <List>
-          {/* Add navigation items here */}
           <ListItem button onClick={toggleDrawer(false)}>
-            <ListItemIcon>{/* Icon for the item */}</ListItemIcon>
-            <ListItemText primary="Home" />
+            <ListItemText primary="Projects" />
           </ListItem>
-          {/* Repeat for other navigation items */}
+          <ListItem button onClick={toggleDrawer(false)}>
+            <ListItemText primary="Skills" />
+          </ListItem>
+          <ListItem button onClick={toggleDrawer(false)}>
+            <ListItemText primary="Education" />
+          </ListItem>
+          <ListItem button onClick={toggleDrawer(false)}>
+            <ListItemText primary="Contact me" />
+          </ListItem>
         </List>
       </Drawer>
     </React.Fragment>
