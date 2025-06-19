@@ -4,18 +4,22 @@ import { Box, Button, IconButton, Tooltip, useTheme, useMediaQuery  } from '@mui
 import { styled } from '@mui/material/styles';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import ReactLogo from './images/logo-react-svgrepo-com.svg';
-import SpringBootLogo from './images/springio-ar21.svg';
+import skillBox from './images/skillBox.svg';
+import ReactLogo from './images/reactLogo.svg';
+import jsLogo from './images/js.svg';
+import nextjsLogo from './images/nextjs.svg';
+import SpringBootLogo from './images/springBoot.svg';
 import PostgresLogo from './images/postgresql.svg';
 import AndroidStudio from './images/android-studio-icon.svg';
-import JavaLogo from './images/java-horizontal.svg';
+import JavaLogo from './images/java.svg';
 import PythonLogo from './images/icons8-python.svg';
-import GitLogo from './images/Git-Logo-2Color.svg';
+import GitLogo from './images/git.svg';
 import GitHubLogo from './images/github-mark.svg';
+import myImg from './images/MyImg.jpg';
 import project1 from './images/project1.png';
 import project2 from './images/project2.png';
-import project3 from './images/project3.png';
-import project4 from './images/project4.png';
+import project3 from './images/HMS.png';
+import project4 from './images/AIS.png';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -23,6 +27,9 @@ import { ContactUs } from './emailContact';
 import  Footer from './footer';
 import MobileNav from './MobileNav';
 import './css/responsive-styles.css';
+import 'particles.js/particles';
+
+
 
 const boxStyle = {
   position: 'fixed',
@@ -79,21 +86,97 @@ const GradientButton = styled(Button)(({ theme }) => ({
     opacity: 1,
   },
 }));
-const skillsContainerStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexWrap: 'wrap',
-  marginTop: '200px',
-  marginBottom: '50px'
-};
+
+const projects = [
+  {
+    id: 1,
+    title: 'Hotel Management System',
+    subtitle: 'Full-stack enterprise solution for hotel operations',
+    description: 'A scalable full-stack system used by hotel staff for managing reservations, check-ins, and room management. Built using Next.js, Electron.js, Spring Boot, and PostgreSQL.',
+    detail: 'This commercial-grade system was developed for a real business in Libya. The stack includes a Next.js frontend for customers, an Electron.js desktop app for internal hotel staff, and a robust Spring Boot backend serving over 40 APIs. Designed with scalability and role-based access control in mind.',
+    bullets: [
+      'Next.js website showcasing hotel details and available rooms (currently awaiting payment gateway integration)',
+      'Electron.js desktop application for staff to manage bookings, check-ins, check-outs, and cancellations',
+      'Spring Boot backend with over 40 RESTful APIs supporting both frontend and desktop applications',
+      'JWT authentication system with role-based access control (admin, staff roles)',
+      'PostgreSQL database designed for efficiency, normalization, and future scalability',
+      'Modular architecture allowing independent development and maintenance of each layer'
+    ],
+    image: project3, // Replace this with your actual image path if you have one
+    tools: ['Next.js', 'Electron.js', 'Spring Boot', 'PostgreSQL', 'JWT', 'Java'],
+    liveUrl: '#', // You can link to GitHub or demo when ready
+    githubUrl: '#' // Optional: link to repo if public
+  },
+  {
+    id: 2,
+    title: 'AI Workout Assistant',
+    subtitle: 'Real-time fitness feedback with computer vision',
+    description: 'An AI-powered assistant that gives real-time posture and form feedback during workouts.',
+    detail: 'Developed a commercial-grade exercise tracker using MediaPipe and OpenCV with 92% rep-count accuracy. Built using Python.',
+    bullets: [
+      'AI-powered rep counting and posture detection using MediaPipe pose estimation',
+      'Designed extensible configuration system using Python dataclasses and Enum types',
+      'Created registry pattern (`EXERCISES` dict) for dynamic exercise management',
+      'Enabled adding new workouts through structured `ExerciseConfig` class (joint mappings, thresholds)',
+      'Biomechanical parameterization: Angle thresholds, velocity checks, and body side detection',
+      'Architecture: Followed MVC pattern with separation of tracking logic and UI'
+    ],
+    image: project4,
+    tools: ['Python', 'MediaPipe', 'OpenCV'],
+    liveUrl: '#',
+    githubUrl: '#'
+  },
+  {
+    id: 3,
+    title: "Sports Pick-up Application",
+    subtitle: "Connecting athletes for casual games",
+    description: "A game pick-up application that connects athletes looking to join or organize local sports events. Built with a collaborative team effort, the app supports real-time communication and dynamic event planning.",
+    detail: "Developed using React, Spring Boot, and PostgreSQL, this application enables users to discover local sports games, create events, invite friends, and manage availability. The app includes real-time messaging using WebSockets for seamless communication between players.",
+    bullets: [
+      "User authentication system using Firebase Auth",
+      "Location-based event discovery integrated with Google Maps API",
+      "Real-time messaging functionality using WebSocket",
+      "Event management system with RSVP and calendar integration",
+      "Collaborated in a team of two to design and implement full-stack features"
+    ],
+    image: project1,
+    tools: ["React", "Spring Boot", "PostgreSQL", "WebSocket", "Google Maps API"],
+    liveUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    id: 4,
+    title: 'Barber Management App',
+    subtitle: 'Streamlining barber shop reservations',
+    description: 'A mobile application for managing barbershop reservations.',
+    detail: 'This Android-based app helps barbershops manage appointments, customer profiles, and daily schedules efficiently. Includes real-time notifications and admin dashboard.',
+    bullets: [
+      'Appointment scheduling system',
+      'Admin panel for managing staff and services',
+      'Push notification integration'
+    ],
+    image: project2,
+    tools: ['Android Studio', 'Java', 'SQLite'],
+    liveUrl: '#',
+    githubUrl: '#'
+  }
+];
 
 export default function Homepage() {
+
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const closeDialog = () => {
+    setIsDialogOpen(false);
+  };
+
   useEffect(() => {
     AOS.init({
       duration: 2000, 
     });
   }, []);
+
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -101,6 +184,7 @@ export default function Homepage() {
   return (
     <div>
       {isMobile ? <MobileNav /> : <HeaderPage />}
+      
       <Box to="projects" smooth={true} duration={1000} style={boxStyle}>
         <Tooltip title="Email">
           <IconButton style={{ ...iconContainerStyle, backgroundColor: '#D44638' }} href="#">
@@ -122,203 +206,196 @@ export default function Homepage() {
       </Box>
 
       {/*My introduction*/}
-      <div className='IntroD'>
-        <h4 data-aos="fade-up" style={{maxWidth: '80%'}} >Hi, my name is Abdulmalek but you can call me Malek for short.
-        I'm a software developer currently studying computer science at Georgia State University.</h4>
-      </div>
-
-      <div id='projects' style={{paddingTop: '200px', display: 'flex', justifyContent: 'center',fontFamily:'open-sans'}}>
-        <h2 data-aos="fade-up" >Projects</h2>
-      </div>
-
-      {/*Project 1*/}
-      <div id='projects' className="projectContainerStyle" data-aos="fade-up">
-        <div className='imageContainerStyle'>
+      <div data-aos="fade-up" className='IntroSection'>
+        <div className='IntroSectionLeftSide'>
+          <h5 style={{color: 'grey'}}>SOFTWARE ENGINEER</h5>
+          <h1>Hi, I'm Malek</h1>
+          <h4>I builds things that work. Not just code, but solutions. Whether it’s backend systems, AI applications, or full-stack platforms, I focus on making technology purposeful. </h4>
+          <div>
+            <button className='myProjectButton'>
+              My Projects
+            </button>
+          </div>
+        </div>
+      
+        <div className='IntroSectionRightSide'>
           <img 
-            style={{ width: '400px', objectFit: 'cover', borderRadius: '5px', border: '0.1px solid #737373'}} 
-            src={project1} 
-            alt="Project 1" 
-          />
+            src={myImg}
+            alt="Profile Picture"
+            className="profile-picture"/>
         </div>
-        <div className='descriptionContainerStyle'>
-          <h4 style={{ fontWeight: 'bold' }}>Usports</h4>
-          <p>An app to plan and connect with your friends and other people to play soccer</p>
-          <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
-            <p style={{ marginRight: '10px' }}><b>Tools:</b></p>
-            <img src={ReactLogo} alt="React" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
-            <img src={JavaLogo} alt="Java" style={{ width: '95px', height: '35px', marginRight: '7px' }}/>
-            <img src={SpringBootLogo} alt="Spring Boot" style={{ width: '70px', height: '40px', marginRight: '7px' }}/>
-            <img src={PostgresLogo} alt="PostgreSQL" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
+      </div>
+
+
+      <div className='skillSection'>
+        <div>MY SKILLS</div>
+
+        <div className='skillGrid' data-aos="fade-up">
+          <div className='skillBorder'>
+            <div className='skillContent'>
+              <img
+                src={ReactLogo}
+                alt="Skill"
+                className='skillLogo'
+              />
+            <div className='skillTitle'>ReactJs</div>
+            </div>
           </div>
-        <div style={{paddingTop:'10px'}}>
-          <a href='https://github.com/MalekRockie/USport'>
-            <GradientButton variant="contained">
-              <span>Show Github</span>
-            </GradientButton>
-          </a>
-        </div>
-        </div>
-      </div>
-
-      {/*Project 2*/}
-      <div className="projectContainerStyle" data-aos="fade-up">
-        <div className='imageContainerStyle'>
-          <img 
-            style={{ width: '400px', objectFit: 'cover', borderRadius: '5px', border: '0.1px solid #737373'}} 
-            src={project4} 
-            alt="Project 1" 
-          />
-        </div>
-        <div className='descriptionContainerStyle'>
-          <h4 style={{ fontWeight: 'bold' }}>ServiceMe</h4>
-          <p>An app I worked on as a school project that serves to provide people with a way to get or provide a variety of serivces locally.</p>
-          <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
-            <p style={{ marginRight: '10px' }}><b>Tools:</b></p>
-            <img src={ReactLogo} alt="React" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
-            <img src={JavaLogo} alt="Java" style={{ width: '95px', height: '35px', marginRight: '7px' }}/>
-            <img src={SpringBootLogo} alt="Spring Boot" style={{ width: '70px', height: '40px', marginRight: '7px' }}/>
-            <img src={PostgresLogo} alt="PostgreSQL" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
+          <div className='skillBorder'>
+            <img
+              src={JavaLogo}
+              alt="Skill"
+              className='skillLogo'
+            />
+            <div className='skillTitle'>Java</div>
           </div>
-          <div style={{paddingTop:'10px'}}>
-            <a href='https://github.com/MalekRockie/service-app'>
-              <GradientButton variant="contained">
-                <span>Show Github</span>
-              </GradientButton>
-            </a>
-        </div>
-        </div>
-      </div>
-
-      {/*Project 3*/}
-      <div className="projectContainerStyle" data-aos="fade-up">
-        <div className='imageContainerStyle'>
-          <img 
-            style={{ width: '400px', height:'350px', objectFit: 'cover', borderRadius: '5px' }} 
-            src={project2} 
-            alt="Project 2" 
-          />
-        </div>
-        <div className='descriptionContainerStyle'>
-          <h4 style={{ fontWeight: 'bold' }}>Barbershop Management App</h4>
-          <p>An app to help barbers manage appointments and earnings</p>
-          <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
-            <p style={{ marginRight: '10px' }}><b>Tools:</b></p>
-            <img src={JavaLogo} alt="Java" style={{ width: '85px', height: '35px', marginRight: '7px' }}/>
-              <img src={AndroidStudio} alt="Android Studio" style={{width: '35px', height: '35px', marginRight: '7px' }}/>
+          <div className='skillBorder'>
+            <img
+              src={nextjsLogo}
+              alt="Skill"
+              className='skillLogo'
+            />
+            <div className='skillTitle'>Next.Js</div>
           </div>
-          <div style={{paddingTop:'10px'}}>
-          <a href='https://github.com/MalekRockie/Barbershop-Management-App'>
-            <GradientButton variant="contained">
-              <span>Show Github</span>
-            </GradientButton>
-            </a>
-        </div>
-        </div>
-      </div>
-
-      {/*Project 4*/}
-      <div className="projectContainerStyle" data-aos="fade-up">
-        <div className='imageContainerStyle'>
-          <img 
-            style={{ width: '400px', objectFit: 'cover', borderRadius: '5px' }} 
-            src={project3} 
-            alt="Project 3" 
-          />
-        </div>
-        <div id='skillSection' className='descriptionContainerStyle'>
-          <h4 style={{ fontWeight: 'bold' }}>Text Summarizer AI</h4>
-          <p>An extractive summarization based AI that summarizes text using TF-IDF and Psycholinguistic features  from an English langauge dataset .</p>
-          <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
-            <p style={{ marginRight: '10px' }}><b>Tools:</b></p>
-            <img src={PythonLogo} alt="Python" style={{ width: '35px', height: '35px', marginRight: '7px' }}/>
+          <div className='skillBorder'>
+            <img
+              src={jsLogo}
+              alt="Skill"
+              className='skillLogo'
+            />
+            <div className='skillTitle'>JavaScript</div>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
-            {/* Tools and other details for Project 3 */}
+          <div className='skillBorder'>
+            <img
+              src={SpringBootLogo}
+              alt="Skill"
+              className='skillLogo'
+            />
+            <div className='skillTitle'>Spring Boot</div>
           </div>
-          <div style={{paddingTop:'10px'}}>
-          <a href='https://github.com/MalekRockie/TextSummarizer-AI'>
-            <GradientButton variant="contained">
-              <span>Show Github</span>
-            </GradientButton>
-            </a>
-        </div>
-        </div>
-      </div>
-
-      {/* Skills Section */}
-      <div data-aos="fade-up" style={skillsContainerStyle}>
-        <h2 style={{ width: '100%', textAlign: 'center', marginBottom: '20px', fontFamily: 'open-sans' }}>Skills</h2>
-        <img src={ReactLogo} alt="React" style={{ width: '40px', height: '70px', margin: '10px' }} />
-        <img src={JavaLogo} alt="Java" style={{ width: '90px', height: '30px', margin: '10px' }} />
-        <img src={SpringBootLogo} alt="Spring Boot" style={{ width: '100px', height: '50px', margin: '10px' }} />
-        <img src={PostgresLogo} alt="PostgreSQL" style={{ width: '40px', height: '70px', margin: '10px' }} />
-        <img src={AndroidStudio} alt="Android Studio" style={{ width: '40px', height: '70px', margin: '10px' }} />
-        <img src={PythonLogo} alt="Python" style={{ width: '50px', height: '70px', margin: '10px' }} />
-        <img src={GitLogo} alt="Python" style={{ width: '90px', height: '70px', margin: '10px' }} />
-        <img src={GitHubLogo} alt="Github" style={{ width: '60px', height: '60px', margin: '10px' }} />
-      </div>
-
-
-      <div id='education' style={{paddingTop: '200px', display: 'flex', justifyContent: 'center'}}>
-        <h2 data-aos="fade-up" style={{fontFamily:'open-sans'}} >Education</h2>
-      </div>
-
-      {/* Education Entry 1 - Current Education at Georgia State University */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px'}}>
-        <div className='educationBoxStyle' data-aos="fade-up">
-          <img
-          style={{height: '150px', marginBottom:'50px'}}
-          src='https://commkit.gsu.edu/wp-content/themes/gsu-flex-2.1/images/logo.png'/>
-          <div
-            style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            textAlign: 'left',
-            paddingLeft: '15px'
-            }}
-          >
-            <h4 style={{ fontWeight: 'bold' }}>Georgia State University</h4>
-            <ul>
-              <li>Program: Bachelor of Science in Computer Science</li>
-              <li>Expected Graduation: Dececmber 2023</li>
-              <li>Current GPA: 3.73</li>
-            </ul>
+          <div className='skillBorder'>
+            <img
+              src={PostgresLogo}
+              alt="Skill"
+              className='skillLogo'
+            />
+            <div className='skillTitle'>PostgreSQL</div>
+          </div>
+          <div className='skillBorder'>
+            <img
+              src={AndroidStudio}
+              alt="Skill"
+              className='skillLogo'
+            />
+            <div className='skillTitle'>Android Studio</div>
+          </div>
+          <div className='skillBorder'>
+            <img
+              src={PythonLogo}
+              alt="Skill"
+              className='skillLogo'
+            />
+            <div className='skillTitle'>Python</div>
+          </div>
+          <div className='skillBorder'>
+            <img
+              src={GitLogo}
+              alt="Skill"
+              className='skillLogo'
+            />
+            <div className='skillTitle'>Git</div>
           </div>
         </div>
+
       </div>
 
-      {/* Education Entry 2 - Previous Education at Georgia State University */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px', paddingBottom: '200px'}}>
-        <div className='educationBoxStyle' data-aos="fade-up">
-          <img
-          style={{height: '150px', marginBottom:'50px'}}
-          src='https://commkit.gsu.edu/wp-content/themes/gsu-flex-2.1/images/logo.png'/>
-          <div
-            style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            textAlign: 'left',
-            paddingLeft: '15px'
-            }}
-          >
-            <h4 style={{ fontWeight: 'bold' }}>Georgia State University - Perimeter</h4>
-            <ul>
-              <li>Program: Associate Degree in Computer Science</li>
-              <li>Year of Graduation: 2020</li>
-              <li>GPA: 3.48</li>
-            </ul>
+      <div className="pseudo-divider" />
+
+      <div className='projectSection'>
+
+        <div>
+          My Projects
+        </div>
+        
+        <div className='projectGrid' data-aos="fade-up">
+
+          {projects.map(project => (
+          <div key={project.id} className='projectContainer'>
+            <div className='imageContainerStyle'>
+              <img className='pImage' src={project.image} alt={project.title} />
+            </div>
+            <div className='projectLabel'>{project.title}</div>
+            <div className='projectDescription'>{project.description}</div>
+            <div 
+              className='detailButton'
+              onClick={() => {
+                setSelectedProject(project);
+                setIsDialogOpen(true);
+              }}
+            >
+              View Details
+            </div>
           </div>
+        ))}
+
         </div>
       </div>
+
+      {isDialogOpen && (
+        <div 
+        className={`dialogOverlay ${isDialogOpen ? 'active' : ''}`} 
+        onClick={(e) => e.target === e.currentTarget && setIsDialogOpen(false)}
+      >
+          <div className='projectDetailDialog'>
+            <div className='projectDetailContainer'>
+              <div className='detailImageContainer'>
+                <img className='projectDetailImage' src={selectedProject.image} alt={selectedProject.title} />
+              </div>
+              <div className='projectDetails'>
+                <div>{selectedProject.title}</div>
+                <h4 style={{ color: '#888', fontWeight: '200px' }}>{selectedProject.subtitle}</h4>
+
+                {/* Description */}
+                <p className='projectDetailDescription'>{selectedProject.detail}</p>
+
+                {/* Bullet Points */}
+                <ul className="project-detail-bullets">
+                  {selectedProject.bullets.map((bullet, index) => (
+                    <li key={index}>{bullet}</li>
+                  ))}
+                </ul>
+
+                {/* Tools / Tech Stack */}
+                <div className="tools-used">
+                  {selectedProject.tools.map((tool, index) => (
+                    <span key={index} className="tool-tag">{tool}</span>
+                  ))}
+                </div>
+
+                {/* Close Button */}
+                <button className="close-dialog-button" onClick={() => setIsDialogOpen(false)}>
+                  &times;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/*Contact section*/}
-      <div id='contact' data-aos="fade-up" style={{paddingBottom: '100px'}}>
-        <h2 style={{fontWeight:"inherit"}}>Email me:</h2>
-        <ContactUs/>
+      <div className='emailTitle'>Contact me
+        <div className='emailSection' id='contact'>
+          <div className='emailLabel'>
+            Open to new opportunities, collaborations, or just a good tech chat. Feel free to drop a message!
+            <div className='email'>Email: MalekTech@Yahoo.com</div>
+          </div>
+          <ContactUs/>
+        </div>
       </div>
-        <Footer/>
+
+      <div className='footer'>
+        ABDULMALEK ABULGASEM © 2025
+      </div>
     </div>
   );
 }

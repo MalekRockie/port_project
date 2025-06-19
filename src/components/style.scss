@@ -1,9 +1,9 @@
 #particles-js {
-  background: linear-gradient(90deg, #F24645, #4F00BC);
+  background: linear-gradient(90deg, #212121, #000000);
 }
 
 #footer-particles-js{
-  background: linear-gradient(90deg, #F24645, #4F00BC);
+  background: linear-gradient(90deg, #212121, #000000);
 }
 #navbar-content {
   position: relative;
@@ -32,4 +32,9 @@
     color:#44C1EB;
   }
   
+}
+
+.body
+{
+  background-color: #212121;
 }

@@ -1,12 +1,35 @@
 import React, {useState} from 'react';
 import emailjs from 'emailjs-com';
 import { TextField, Button, Box } from '@mui/material';
+import './css/responsive-styles.css';
+
+
+const labelStyle = {
+display: 'block',
+marginBottom: '8px',
+color: '#fff',
+fontSize: '14px'
+};
+  
+const inputStyle = {
+width: '600px',
+padding: '10px 12px',
+border: '1px solid white',
+borderRadius: '5px',
+backgroundColor: 'transparent',
+color: 'white',
+outline: 'none',
+fontSize: '16px',
+boxSizing: 'border-box',
+};
+  
 
 export function ContactUs() {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+
 
     function sendEmail(e) {
      e.preventDefault();
@@ -20,8 +43,10 @@ export function ContactUs() {
         setName("");
         setEmail("");
         setMessage("");
+        alert("Your message has been sent successfully!");
         }, (error) => {
             console.log(error.text);
+            alert("Oops! Something went wrong. Please try again.");
         });
     }
 
@@ -35,44 +60,55 @@ export function ContactUs() {
                 style={{minWidth: '300px'}}
                 
             >
-                <TextField 
-                name="user_name" 
-                label="Name" 
-                margin="normal"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                style={{ width: '300px' }}
-                />
-                <TextField 
-                type="email" 
-                name="user_email" 
-                label="Email" 
-                margin="normal"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                style={{ width: '300px' }}
-                required
-                />
-                <TextField 
-                name="message" 
-                label="Message" 
-                multiline 
-                rows={4} 
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                margin="normal"
-                style={{ width: '300px' }}
-                required
-                />
-                <Button 
-                type="submit" 
-                variant="contained" 
-                color="primary" 
-                style={{marginTop: '1rem'}}
+                <div style={{ marginBottom: '16px' }}>
+                    <label htmlFor="user_name" style={labelStyle}>Name</label>
+                    <input
+                        id="user_name"
+                        name="user_name"
+                        type="text"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        style={inputStyle}
+                    />
+                                    </div>
+
+                    <div style={{ marginBottom: '16px' }}>
+                    <label htmlFor="user_email" style={labelStyle}>Email</label>
+                    <input
+                        id="user_email"
+                        type="email"
+                        name="user_email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        style={inputStyle}
+                    />
+                    </div>
+
+                    <div style={{ marginBottom: '16px' }}>
+                    <label htmlFor="message" style={labelStyle}>Message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="4"
+                        required
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        style={{
+                        ...inputStyle,
+                        resize: 'vertical',
+                        minHeight: '80px'
+                        }}
+                    />
+                    </div>
+                
+                <button 
+                type="submit"
+                className='submitButton'
                 >
                 Send
-                </Button>
+                </button>
             </Box>
         </form>
     );
