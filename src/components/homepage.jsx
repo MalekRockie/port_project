@@ -125,7 +125,7 @@ const projects = [
     image: project4,
     tools: ['Python', 'MediaPipe', 'OpenCV'],
     liveUrl: '#',
-    githubUrl: '#'
+    githubUrl: 'https://github.com/MalekRockie/SuperTrainer'
   },
   {
     id: 3,

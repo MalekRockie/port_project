@@ -32,6 +32,12 @@
         object-fit: cover; 
         object-position: center;
     }
+    .pImage:hover {
+        scale: 1.2;
+        -webkit-transition: all .5s;
+        filter: blur(0.2rem);
+    }
+
     .imageContainerStyle:not(:first-child) {
         overflow: hidden;
         height: 3rem;
