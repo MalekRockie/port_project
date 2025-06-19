@@ -180,6 +180,10 @@ export default function Homepage() {
     scroller.scrollTo('projects', options);
   };
 
+  const handleEmailScroll = () => {
+    scroller.scrollTo('contact', options);
+  };
+
   useEffect(() => {
     AOS.init({
       duration: 2000, 
@@ -196,8 +200,8 @@ export default function Homepage() {
       
       <Box to="projects" smooth={true} duration={1000} style={boxStyle}>
         <Tooltip title="Email">
-          <IconButton style={{ ...iconContainerStyle, backgroundColor: '#D44638' }} href="#">
-            <EmailIcon />
+          <IconButton style={{ ...iconContainerStyle, backgroundColor: '#D44638' }} onClick={handleEmailScroll}>
+            <EmailIcon/>
           </IconButton>
         </Tooltip>
 

@@ -81,6 +81,7 @@
         justify-content:center;
         /* padding-top: 2em; */
         color: aliceblue;
+        cursor: default;
     }
     .IntroSectionLeftSide{
         /* background-color: red; */
@@ -160,6 +161,7 @@
         color: transparent;
         /* color: linear-gradient(90deg, aliceblue, white); */
         /* font-family: open-sans; */
+        cursor: default;
         
     }
 
@@ -222,6 +224,7 @@
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
+        cursor: default;
     }
 
     .projectContainer{
