@@ -28,6 +28,7 @@ import  Footer from './footer';
 import MobileNav from './MobileNav';
 import './css/responsive-styles.css';
 import 'particles.js/particles';
+import { scroller, Element } from 'react-scroll';
 
 
 
@@ -162,13 +163,21 @@ const projects = [
   }
 ];
 
-export default function Homepage() {
+const options = {
+  duration: 1000,
+  smooth: true,
+};
 
+export default function Homepage() {
+  
   const [selectedProject, setSelectedProject] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
+  
   const closeDialog = () => {
     setIsDialogOpen(false);
+  };
+  const handleScroll = () => {
+    scroller.scrollTo('projects', options);
   };
 
   useEffect(() => {
@@ -212,7 +221,7 @@ export default function Homepage() {
           <h1>Hi, I'm Malek</h1>
           <h4>I builds things that work. Not just code, but solutions. Whether it’s backend systems, AI applications, or full-stack platforms, I focus on making technology purposeful. </h4>
           <div>
-            <button className='myProjectButton'>
+            <button className='myProjectButton' onClick={handleScroll}>
               My Projects
             </button>
           </div>
@@ -311,7 +320,8 @@ export default function Homepage() {
 
       <div className="pseudo-divider" />
 
-      <div className='projectSection'>
+      <div id="projects" className='projectSection'>
+      <Element name="projects"></Element>
 
         <div>
           My Projects
