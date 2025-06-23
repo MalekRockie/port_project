@@ -27,8 +27,8 @@ export default function HeaderPage() {
         <div className='navTitle'>ABDULMALEK ABULGASEM</div>
           <div className="container purple topBotomBordersIn">
             <Link onClick={scrollToTop} smooth={true} duration={1000}>Home</Link>
-            <Link to="projects" smooth={true} duration={1000}>Projects</Link>
             <Link to="skillSection" smooth={true} duration={1000}>Skills</Link>
+            <Link to="projects" smooth={true} duration={1000}>Projects</Link>
             {/* <Link to="education" smooth={true} duration={1000}>Education</Link> */}
             <Link to="contact" smooth={true} duration={1000}>Contact me</Link>
           </div>
